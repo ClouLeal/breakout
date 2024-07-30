@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5642996080842731028}
   - component: {fileID: 8275690329976355784}
-  - component: {fileID: 4209847223658935653}
   - component: {fileID: 326038006030099100}
   - component: {fileID: 3936459937646496605}
   - component: {fileID: 8911953395547507409}
+  - component: {fileID: 4209847223658935653}
   m_Layer: 5
   m_Name: Ball
   m_TagString: Untagged
@@ -48,20 +48,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3691921659488465906}
   m_CullTransparentMesh: 1
---- !u!114 &4209847223658935653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3691921659488465906}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82dbb542eb7b85345b1c7b1f502f5b8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InitialImpulse: {x: 3000, y: 2000}
-  Rigidbody2D: {fileID: 3936459937646496605}
 --- !u!114 &326038006030099100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,3 +140,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 40
+--- !u!114 &4209847223658935653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3691921659488465906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82dbb542eb7b85345b1c7b1f502f5b8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitialImpulse: {x: 6000, y: 4000}
+  rectTransform: {fileID: 5642996080842731028}
+  rigidbody2D: {fileID: 3936459937646496605}
