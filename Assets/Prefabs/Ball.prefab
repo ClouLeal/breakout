@@ -152,6 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82dbb542eb7b85345b1c7b1f502f5b8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitialImpulse: {x: 6000, y: 4000}
-  rectTransform: {fileID: 5642996080842731028}
+  ballSpeed: 15004
   rigidbody2D: {fileID: 3936459937646496605}
+  initialPosition: {fileID: 0}
