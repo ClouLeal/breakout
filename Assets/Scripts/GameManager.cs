@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Breakout
 { 
@@ -6,15 +7,15 @@ namespace Breakout
     {
         public static GameManager Instance { get; private set; }
 
-        [SerializeField] Transform BricksContainer;
-        [SerializeField] UIManager uiManager;
-        [SerializeField] Ball ball;
-        [SerializeField] Paddle paddle;
         [SerializeField] Controller controller;
 
         public int score = 0;
         public int lives = 3;
 
+        public UnityEvent<int> UpdateScore;
+        public UnityEvent<int> UpdateLife;
+
+        public UnityEvent ResetGameState;
 
         private void Awake()
         {
@@ -41,28 +42,28 @@ namespace Breakout
             this.score = 0;
             this.lives = 3;
 
-            controller.SetUpNewGame(HandleBrickHit);
+            controller.SetUpNewGame();
 
             ResetPosition();
 
-            uiManager.UpdateScore(score);
-            uiManager.UpdateLives(lives);
 
+            UpdateScore.Invoke(score);
+            UpdateLife.Invoke(lives);
         }
 
 
-        void HandleBrickHit(int points)
+        public void OnBrickHit(int points)
         {
             this.score += points;
 
-            uiManager.UpdateScore(score);
+            UpdateScore?.Invoke(score);
         }
 
 
         public void LoseLife()
         {
             lives--;
-            uiManager.UpdateLives(lives);
+            UpdateLife.Invoke(lives);
 
             if (lives == 0)
             {
@@ -76,12 +77,10 @@ namespace Breakout
 
         private void ResetPosition()
         {
-
-            ball.ResetBall();
-            paddle.ResetPaddle();
+            ResetGameState?.Invoke();
         }
 
-        private void GameOver()
+        public void GameOver()
         {
             controller.SetGameOver();
             Invoke("NewGame", 1f);

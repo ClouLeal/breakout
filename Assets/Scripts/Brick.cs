@@ -7,9 +7,10 @@ namespace Breakout
     {
         [SerializeField] private Animator animator;
 
-        [SerializeField] int brickScore;
+        [SerializeField] private int brickScore;
+        public int BrickScore => brickScore;
 
-        public Action<int> OnHit;
+        public Action<Brick> OnHit;
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
@@ -20,7 +21,7 @@ namespace Breakout
         {
             PlayBrickHitFX();
 
-            OnHit?.Invoke(brickScore);
+            OnHit?.Invoke(this);
 
             //This will make if loos all listenners references because this is a brocke brick
             OnHit = null;

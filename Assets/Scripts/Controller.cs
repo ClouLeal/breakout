@@ -12,10 +12,9 @@ namespace Breakout
         [SerializeField] private Brick BrickPrefab;
         [SerializeField] private Transform BrickContainer;
 
-        /*[SerializeField] int colunmSize = 5;
-        [SerializeField] int rowSize = 3;*/
-
         List<Brick> bricksList = new List<Brick>();
+
+        int hitBrickCount = 0;
 
         private void Awake()
         {
@@ -33,12 +32,27 @@ namespace Breakout
             }
         }
 
-        public void SetUpNewGame(Action<int> handleBrickHit)
+        private void HitBrickHandler(Brick brick)
+        {
+            hitBrickCount++;
+            brick.OnHit = null;
+
+            if(hitBrickCount >= bricksList.Count)
+            {
+                GameManager.Instance.GameOver();
+            }
+            else
+            {
+                GameManager.Instance.OnBrickHit(brick.BrickScore);
+            }
+        }
+
+        public void SetUpNewGame()
         {
             foreach (var brick in bricksList)
             {
                 brick.gameObject.SetActive(true);
-                brick.OnHit += handleBrickHit;
+                brick.OnHit += HitBrickHandler;
             }
         }
 
@@ -50,5 +64,7 @@ namespace Breakout
                 brick.OnHit = null;
             }
         }
+
+        
     }
 }
