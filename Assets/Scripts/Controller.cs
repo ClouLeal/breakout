@@ -1,15 +1,10 @@
 using UnityEngine;
-
-using System.Linq;
 using System.Collections.Generic;
-using System;
-using Unity.VisualScripting;
 
 namespace Breakout
 {
     public class Controller : MonoBehaviour
     {
-        [SerializeField] private Brick BrickPrefab;
         [SerializeField] private Transform BrickContainer;
 
         List<Brick> bricksList = new List<Brick>();

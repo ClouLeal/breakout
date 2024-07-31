@@ -5,7 +5,7 @@ namespace Breakout
 {
     public class Ball : MonoBehaviour
     {
-        [SerializeField] private Vector2 InitialImpulse;
+        [SerializeField] private int ballSpeed;
         [SerializeField] private RectTransform rectTransform;
         [SerializeField] private Rigidbody2D rigidbody2D;
 
@@ -26,7 +26,7 @@ namespace Breakout
                 if (Input.GetKey(KeyCode.Space)) 
                 { 
                     isMoving = true;
-                    rigidbody2D.AddForce(InitialImpulse);
+                    rigidbody2D.AddForce(Vector2.up * ballSpeed);
                 }
             }
         }

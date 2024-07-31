@@ -37,7 +37,7 @@ namespace Breakout
         }
 
 
-        void NewGame()
+        public void NewGame()
         {
             this.score = 0;
             this.lives = 3;

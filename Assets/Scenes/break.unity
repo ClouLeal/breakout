@@ -1740,6 +1740,14 @@ PrefabInstance:
       value: Ball
       objectReference: {fileID: 0}
     - target: {fileID: 4209847223658935653, guid: 5dc2b1e06ce5c6d47be7f0209eb588eb, type: 3}
+      propertyPath: ballSpeed
+      value: 15000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4209847223658935653, guid: 5dc2b1e06ce5c6d47be7f0209eb588eb, type: 3}
+      propertyPath: rectTransform
+      value: 
+      objectReference: {fileID: 1305821804}
+    - target: {fileID: 4209847223658935653, guid: 5dc2b1e06ce5c6d47be7f0209eb588eb, type: 3}
       propertyPath: initialPosition
       value: 
       objectReference: {fileID: 528258329}
@@ -3323,7 +3331,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32b4122f4d3758646ae470a4fe7e9b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BrickPrefab: {fileID: 4209847223658935653, guid: 9c72404b7279e5a4b9b67032836527ef, type: 3}
   BrickContainer: {fileID: 1073587621}
 --- !u!4 &1365920366
 Transform:
